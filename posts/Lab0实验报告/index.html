@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Lab0实验报告 | wzr Blog</title><meta name="author" content="WZR"><meta name="copyright" content="WZR"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Lab0实验报告上机实验 上机实验我犯了很多非常傻的错误，包括最为致命的把题目的127.0.0.3这个IP的替换当作了要把所有的log&#x2F;$date&#x2F;access.log替换掉。   我觉得我这次上机extra没有做出来主要是因为熟练度不够，同时不知道到底要考什么，所以在遇到一些问题之后就慌了神，即使脑袋里有印象该怎么做，最后还是做不出来。往后的上机要做好预案，在上机之前就想好上机的时候可能遇到什么">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lab0实验报告">
+<meta property="og:url" content="https://wzr85.github.io/posts/Lab0%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/index.html">
+<meta property="og:site_name" content="wzr Blog">
+<meta property="og:description" content="Lab0实验报告上机实验 上机实验我犯了很多非常傻的错误，包括最为致命的把题目的127.0.0.3这个IP的替换当作了要把所有的log&#x2F;$date&#x2F;access.log替换掉。   我觉得我这次上机extra没有做出来主要是因为熟练度不够，同时不知道到底要考什么，所以在遇到一些问题之后就慌了神，即使脑袋里有印象该怎么做，最后还是做不出来。往后的上机要做好预案，在上机之前就想好上机的时候可能遇到什么">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://wzr85.github.io/img/butterfly-icon.png">
+<meta property="article:published_time" content="2026-03-19T14:24:21.000Z">
+<meta property="article:modified_time" content="2026-03-19T14:26:13.491Z">
+<meta property="article:author" content="WZR">
+<meta property="article:tag" content="OS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wzr85.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Lab0实验报告",
+  "url": "https://wzr85.github.io/posts/Lab0%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/",
+  "image": "https://wzr85.github.io/img/butterfly-icon.png",
+  "datePublished": "2026-03-19T14:24:21.000Z",
+  "dateModified": "2026-03-19T14:26:13.491Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "WZR",
+      "url": "https://wzr85.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://wzr85.github.io/posts/Lab0%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Lab0实验报告',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">wzr Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Lab0实验报告</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">Lab0实验报告</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-03-19T14:24:21.000Z" title="Created 2026-03-19 22:24:21">2026-03-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-03-19T14:26:13.491Z" title="Updated 2026-03-19 22:26:13">2026-03-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/OS/">OS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Lab0实验报告"><a href="#Lab0实验报告" class="headerlink" title="Lab0实验报告"></a>Lab0实验报告</h1><h2 id="上机实验"><a href="#上机实验" class="headerlink" title="上机实验"></a>上机实验</h2><blockquote>
+<p>上机实验我犯了很多非常傻的错误，包括最为致命的把题目的127.0.0.3这个IP的替换当作了要把所有的<code>log/$date/access.log</code>替换掉。</p>
+</blockquote>
+<blockquote>
+<p>我觉得我这次上机extra没有做出来主要是因为熟练度不够，同时不知道到底要考什么，所以在遇到一些问题之后就慌了神，即使脑袋里有印象该怎么做，最后还是做不出来。往后的上机要做好预案，在上机之前就想好上机的时候可能遇到什么问题，有哪些可能的解决手段（指的是不通过互联网的解决手段，比如携带纸质资料，上传资料到跳板机）</p>
+</blockquote>
+<h3 id="有关wordspliting"><a href="#有关wordspliting" class="headerlink" title="有关wordspliting"></a>有关wordspliting</h3><p>题目有要求把<code>grep</code>命令找到的含有<code>ERROR</code>的行全部原封不动的输入到reports&#x2F;date文件夹下的error.log中，这时我们很容易想到<code>echo</code>命令，但是我们不能直接<code>echo $errors &gt; $error_dst</code>因为<code>echo</code>会在输出的时候做分词，会把所有的空白符转换成空格，为了抑制分词可以在<code>$errors</code>外面套一层<code>&quot;&quot;</code>变成<code>echo &quot;$errors&quot; &gt; $error_dst</code>。</p>
+<h3 id="MakeFile有关depends"><a href="#MakeFile有关depends" class="headerlink" title="MakeFile有关depends"></a>MakeFile有关depends</h3><p>我在上机的时候遇到了神奇的报错<code>make: *** 没有规则可制作目标“common.h,”，由“ver1” 需求。 停止。</code></p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span> makefile.inc</span><br><span class="line"></span><br><span class="line">COMMON_FILE = main.c post_calc.c common.h</span><br><span class="line"></span><br><span class="line"><span class="section">run: casegen ver1 ver2</span></span><br><span class="line">	./casegen <span class="variable">$(CASE_NUM)</span> <span class="variable">$(INPUT_FILE)</span></span><br><span class="line">	./ver1 <span class="variable">$(INPUT_FILE)</span></span><br><span class="line">	./ver2 <span class="variable">$(INPUT_FILE)</span></span><br><span class="line"><span class="section">all: casegen ver1 ver2</span></span><br><span class="line"></span><br><span class="line"><span class="section">ver1: <span class="variable">$(COMMON_FILE)</span> calc1.c</span></span><br><span class="line">	gcc -o ver1 <span class="variable">$(COMMON_FILE)</span> calc1.c</span><br><span class="line"></span><br><span class="line"><span class="section">ver2: <span class="variable">$(COMMON_FILE)</span> calc2.c</span></span><br><span class="line">    gcc -o ver2 <span class="variable">$(COMMON_FILE)</span> calc2.c</span><br><span class="line"></span><br><span class="line"><span class="section">casegen: casegen.c</span></span><br><span class="line">    gcc casegen.c -o casegen</span><br><span class="line"></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">    rm -f casegen ver1 ver2 *.txt</span><br><span class="line"><span class="meta"><span class="keyword">.PHONY</span>: run all clean</span></span><br></pre></td></tr></table></figure>
+
+<p>后来找了半天才发现是在写depends的时候手贱加上了<code>,</code>导致无法正确的解析出来target的依赖。</p>
+<p>还有就是有关<code>rm</code>命令，一般来说如果你要删除一个不存在的文件的时候<code>rm</code>命令会报错，这个时候就需要加上<code>-f</code></p>
+<p>选项，这样在没有文件的时候删除也不会报错了。<del>（我要狠狠的吐槽助教为什么稿那么多的宏变量在文件里面，我光是要理解就花了好长的时间</del>）</p>
+<h3 id="bash有关的操作"><a href="#bash有关的操作" class="headerlink" title="bash有关的操作"></a>bash有关的操作</h3><h4 id="1-mkdir如何避免重复创建目录而报错"><a href="#1-mkdir如何避免重复创建目录而报错" class="headerlink" title="1.mkdir如何避免重复创建目录而报错"></a>1.<code>mkdir</code>如何避免重复创建目录而报错</h4><p>在创建目录的时候经常会遇到重复创建而报错的时候，这就需要添加参数<code>-p</code>来避免报错了，也就是<code>mkdir -p mewdir</code></p>
+<h4 id="2-sort的使用方法"><a href="#2-sort的使用方法" class="headerlink" title="2.sort的使用方法"></a>2.<code>sort</code>的使用方法</h4><p>sort默认是按行切分，然后对每行逐个字符的比较，最后按照字符串从小到大来输出。<code>-n</code>选项是按照数字排序，具体是把每一行开头能够识别的数字识别出来然后比较。<code>-r</code>选项表示reverse，指的是反向排序。</p>
+<h4 id="3-正则表达式Regex"><a href="#3-正则表达式Regex" class="headerlink" title="3.正则表达式Regex"></a>3.正则表达式Regex</h4><p>虽然题目中没有很复杂的正则表达式但是由于笨人理解能力太过于低下，导致我陷入了如何匹配类似于<code>127.0.0.3</code>这样的IP地址的问题中，当然我是不可能在考场上做出来的，所以课下研究了一下。这最好是一个非贪婪匹配，但是由于整个log符合条件的串少之又少，所以我就不管贪不贪婪了。首先这个的格式是<code>num + . + num + . + num + . + num</code>但是num的个数不确定，所以我们就要用到<code>* -&gt; 0次或者多次</code>或者<code>+ -&gt; 1次或者多次</code>来指定重复次数。同时由于有些字符比如<code>.</code>在sed指令中本身就有含义，所以为了正确表达，必须要加上反斜杠<code>\</code>来转义，最后的表达式如下<code>sed &#39;s/\([0-9]\+\.\)\{3\}[0-9]\+&#39; file</code>。</p>
+<h2 id="线上实验"><a href="#线上实验" class="headerlink" title="线上实验"></a>线上实验</h2><blockquote>
+<p>线上实验算是比较顺利，没有遇到什么比较难的地方</p>
+</blockquote>
+<h4 id="Thinking-0-1"><a href="#Thinking-0-1" class="headerlink" title="Thinking 0.1"></a>Thinking 0.1</h4><blockquote>
+<p>思考下列有关 Git 的问题：</p>
+<p>• 在前述已初始化的 ~&#x2F;learnGit 目录下，创建一个名为 README.txt 的文件。执行命令 git status &gt; Untracked.txt（其中的 &gt; 为输出重定向，我们将在 0.6.3 中详细介绍）。</p>
+<p>• 在 README.txt 文件中添加任意文件内容，然后使用 add 命令，再执行命令 git status &gt; Stage.txt。</p>
+<p>• 提交 README.txt，并在提交说明里写入自己的学号。</p>
+<p>• 执行命令 cat Untracked.txt 和 cat Stage.txt，对比两次运行的结果，体会README.txt 两次所处位置的不同。</p>
+<p>• 修改 README.txt 文件，再执行命令 git status &gt; Modified.txt。</p>
+<p>• 执行命令 cat Modified.txt，观察其结果和第一次执行 add 命令之前的 status 是否一样，并思考原因。</p>
+</blockquote>
+<p>执行<code>git status &gt; Untracked.txt </code>，表示查询当前<code>README.txt</code>文件状态，并将其记录在<code>Untracked.txt</code>文件中；<code>git status &gt; Stage.txt</code>和<code>git status &gt; Modified.txt</code> 同理。<br><code>cat Untracked.tx</code>t后，第二行显示<code>Untracked files:</code>，说明：在<code>README.txt</code>新建的时候，其处于为未跟踪状态 （untracked）；<br><code>cat Stage.txt</code>后，第二行显示<code> Changes to be committed:</code>，说明：在<code>README.txt</code>中任意添加内容，接着用 add 命令之后，文件处于暂存状 态（staged）；<br><code>cat Modified.txt</code>后，第二行显示 <code>Changes not staged for commit:</code>，说明：在修改<code>README.txt</code>之后，其处于被修改状态（modified）。</p>
+<h4 id="Thinking-0-2"><a href="#Thinking-0-2" class="headerlink" title="Thinking 0.2"></a>Thinking 0.2</h4><blockquote>
+<p>仔细看看0.10，思考一下箭头中的 add the file 、stage the file 和commit 分别对应的是 Git 里的哪些命令呢？</p>
+</blockquote>
+<p><img src="https://yanna-zy.github.io/2023/03/19/BUAA-OS-0/gitThinking0.2.jpg" alt="img"></p>
+<p>add the file : <code>git add </code></p>
+<p>stage the file : <code>git add </code></p>
+<p>commit : <code>git commit -m &#39;&#39;</code></p>
+<h4 id="Thinking-0-3"><a href="#Thinking-0-3" class="headerlink" title="Thinking 0.3"></a>Thinking 0.3</h4><blockquote>
+<p>思考下列问题：</p>
+<ol>
+<li>代码文件 print.c 被错误删除时，应当使用什么命令将其恢复？</li>
+<li>代码文件 print.c 被错误删除后，执行了 git rm print.c 命令，此时应当<br>使用什么命令将其恢复？</li>
+<li>无关文件 hello.txt 已经被添加到暂存区时，如何在不删除此文件的前提下<br>将其移出暂存区？</li>
+</ol>
+</blockquote>
+<p>1.<code>git checkout -- print.c</code></p>
+<p>2.<code>git rm</code>不仅仅会删除暂存区，还会删除磁盘，所以要使用<code>git reset HEAD print.c &amp;&amp; git checkout -- print.c</code></p>
+<p>3.<code>git rm --cached hello.txt</code></p>
+<h4 id="Thinking-0-4"><a href="#Thinking-0-4" class="headerlink" title="Thinking 0.4"></a>Thinking 0.4</h4><blockquote>
+<p>思考下列有关 Git 的问题：</p>
+<p>• 找到在 &#x2F;home&#x2F;22xxxxxx&#x2F;learnGit 下刚刚创建的 README.txt 文件，若不存<br>在则新建该文件。</p>
+<p>• 在文件里加入 Testing 1，git add，git commit，提交说明记为 1。</p>
+<p>• 模仿上述做法，把 1 分别改为 2 和 3，再提交两次。</p>
+<p>• 使用 git log 命令查看提交日志，看是否已经有三次提交，记下提交说明为3 的哈希值a。</p>
+<p>• 进行版本回退。执行命令 git reset –hard HEAD^ 后，再执行 git log，观<br>察其变化。</p>
+<p>• 找到提交说明为 1 的哈希值，执行命令 git reset –hard <hash> 后，再执<br>行 git log，观察其变化。</p>
+<p>• 现在已经回到了旧版本，为了再次回到新版本，执行 git reset –hard <hash>，再执行 git log，观察其变化。</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">git@24373203:~/learnGit (master)$ git log</span><br><span class="line">commit c5f849f6d17642e6cd4812777ad2ca98be93c63a (HEAD -&gt; master)</span><br><span class="line">Author: 万志睿 &lt;24373203@buaa.edu.cn&gt;</span><br><span class="line">Date:   Thu Mar 19 16:10:07 2026 +0800</span><br><span class="line"></span><br><span class="line">    3</span><br><span class="line"></span><br><span class="line">commit c573a1d0f60805f6468e7e6de90aaf58d0556550</span><br><span class="line">Author: 万志睿 &lt;24373203@buaa.edu.cn&gt;</span><br><span class="line">Date:   Thu Mar 19 16:09:55 2026 +0800</span><br><span class="line"></span><br><span class="line">    2</span><br><span class="line"></span><br><span class="line">commit 99b7632e63666de850795e923a7373499c86ee69</span><br><span class="line">Author: 万志睿 &lt;24373203@buaa.edu.cn&gt;</span><br><span class="line">Date:   Thu Mar 19 16:09:00 2026 +0800</span><br><span class="line"></span><br><span class="line">    1</span><br><span class="line">git@24373203:~/learnGit (master)$ git reset --hard HEAD^</span><br><span class="line">HEAD 现在位于 c573a1d 2</span><br><span class="line">git@24373203:~/learnGit (master)$ git log</span><br><span class="line">commit c573a1d0f60805f6468e7e6de90aaf58d0556550 (HEAD -&gt; master)</span><br><span class="line">Author: 万志睿 &lt;24373203@buaa.edu.cn&gt;</span><br><span class="line">Date:   Thu Mar 19 16:09:55 2026 +0800</span><br><span class="line"></span><br><span class="line">    2</span><br><span class="line"></span><br><span class="line">commit 99b7632e63666de850795e923a7373499c86ee69</span><br><span class="line">Author: 万志睿 &lt;24373203@buaa.edu.cn&gt;</span><br><span class="line">Date:   Thu Mar 19 16:09:00 2026 +0800</span><br><span class="line"></span><br><span class="line">    1</span><br><span class="line">git@24373203:~/learnGit (master)$ git reset --hard 99b7632e63666de850795e923a7373499c86ee69</span><br><span class="line">HEAD 现在位于 99b7632 1</span><br><span class="line">git@24373203:~/learnGit (master)$ git log</span><br><span class="line">commit 99b7632e63666de850795e923a7373499c86ee69 (HEAD -&gt; master)</span><br><span class="line">Author: 万志睿 &lt;24373203@buaa.edu.cn&gt;</span><br><span class="line">Date:   Thu Mar 19 16:09:00 2026 +0800</span><br><span class="line"></span><br><span class="line">    1</span><br><span class="line">git@24373203:~/learnGit (master)$ git reset --hard c573a1d0f60805f6468e7e6de90aaf58d0556550</span><br><span class="line">HEAD 现在位于 c573a1d 2</span><br><span class="line">git@24373203:~/learnGit (master)$ git log</span><br><span class="line">commit c573a1d0f60805f6468e7e6de90aaf58d0556550 (HEAD -&gt; master)</span><br><span class="line">Author: 万志睿 &lt;24373203@buaa.edu.cn&gt;</span><br><span class="line">Date:   Thu Mar 19 16:09:55 2026 +0800</span><br><span class="line"></span><br><span class="line">    2</span><br><span class="line"></span><br><span class="line">commit 99b7632e63666de850795e923a7373499c86ee69</span><br><span class="line">Author: 万志睿 &lt;24373203@buaa.edu.cn&gt;</span><br><span class="line">Date:   Thu Mar 19 16:09:00 2026 +0800</span><br><span class="line"></span><br><span class="line">    1</span><br></pre></td></tr></table></figure>
+
+<h4 id="Thinking-0-5"><a href="#Thinking-0-5" class="headerlink" title="Thinking 0.5"></a>Thinking 0.5</h4><blockquote>
+<p>执行如下命令, 并查看结果</p>
+<p>• echo first</p>
+<p>• echo second &gt; output.txt</p>
+<p>• echo third &gt; output.txt</p>
+<p>• echo forth &gt;&gt; output.txt</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git@24373203:~ $ echo first</span><br><span class="line">first</span><br><span class="line">git@24373203:~ $ echo second &gt; output.txt</span><br><span class="line">git@24373203:~ $ echo third &gt; output.txt</span><br><span class="line">git@24373203:~ $ echo forth &gt;&gt; output.txt</span><br><span class="line">git@24373203:~ $ cat output.txt</span><br><span class="line">third</span><br><span class="line">forth</span><br></pre></td></tr></table></figure>
+
+<p>重定向标准输出时候会先创建输出的文件<code>open(&quot;output.txt&quot;, O_WRONLY | O_CREAT | O_TRUNC)</code></p>
+<h4 id="Thinking-0-6"><a href="#Thinking-0-6" class="headerlink" title="Thinking 0.6"></a>Thinking 0.6</h4><blockquote>
+<p>使用你知道的方法（包括重定向）创建下图内容的文件（文件命名为 test），将创建该文件的命令序列保存在 command 文件中，并将 test 文件作为批处理文件运行，将运行结果输出至 result 文件中。给出 command 文件和 result 文件的内容，并对最后的结果进行解释说明（可以从 test 文件的内容入手）. 具体实现的过程中思考下列问题: echo echo Shell Start 与echo `echo Shell Start` 效果是否有区别; echo echo $c&gt;file1与 echo `echo $c&gt;file1` 效果是否有区别. </p>
+</blockquote>
+<p><code>command</code>文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> 1 <span class="comment">#!/bin/bash</span></span><br><span class="line"> 2 <span class="built_in">echo</span> <span class="built_in">echo</span> Shell Start...</span><br><span class="line"> 3 <span class="built_in">echo</span> <span class="built_in">echo</span> <span class="built_in">set</span> a = 1</span><br><span class="line"> 4 <span class="built_in">echo</span> a=1</span><br><span class="line"> 5 <span class="built_in">echo</span> <span class="built_in">echo</span> <span class="built_in">set</span> b = 2</span><br><span class="line"> 6 <span class="built_in">echo</span> b=2</span><br><span class="line"> 7 <span class="built_in">echo</span> <span class="built_in">echo</span> <span class="built_in">set</span> c = a+b</span><br><span class="line"> 8 <span class="built_in">echo</span> <span class="string">&#x27;c=$[$a+$b]&#x27;</span></span><br><span class="line"> 9 <span class="built_in">echo</span> <span class="built_in">echo</span> c = <span class="string">&#x27;$&#x27;</span>c</span><br><span class="line">10 <span class="built_in">echo</span> <span class="built_in">echo</span> save c to ./file1</span><br><span class="line">11 <span class="built_in">echo</span> <span class="built_in">echo</span> <span class="string">&#x27;$c&gt;file1&#x27;</span></span><br><span class="line">12 <span class="built_in">echo</span> <span class="built_in">echo</span> save b to ./file2</span><br><span class="line">13 <span class="built_in">echo</span> <span class="built_in">echo</span> <span class="string">&#x27;$b&gt;file2&#x27;</span></span><br><span class="line">14 <span class="built_in">echo</span> <span class="built_in">echo</span> save a to ./file3</span><br><span class="line">15 <span class="built_in">echo</span> <span class="built_in">echo</span> <span class="string">&#x27;$a&gt;file3&#x27;</span></span><br><span class="line">16 <span class="built_in">echo</span> <span class="built_in">echo</span> save file1 file2 file3 to file4</span><br><span class="line">17 <span class="built_in">echo</span> <span class="built_in">cat</span> <span class="string">&#x27;file1&gt;file4&#x27;</span></span><br><span class="line">18 <span class="built_in">echo</span> <span class="built_in">cat</span> <span class="string">&#x27;file2&gt;&gt;file4&#x27;</span></span><br><span class="line">19 <span class="built_in">echo</span> <span class="built_in">cat</span> <span class="string">&#x27;file3&gt;&gt;file4&#x27;</span></span><br><span class="line">20 <span class="built_in">echo</span> <span class="built_in">echo</span> save file4 to ./result</span><br><span class="line">21 <span class="built_in">echo</span> <span class="built_in">cat</span> <span class="string">&quot;file4&gt;&gt;result&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>result</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Shell Start...</span><br><span class="line">set a = 1</span><br><span class="line">set b = 2</span><br><span class="line">set c = a+b</span><br><span class="line">c = 3</span><br><span class="line">save c to ./file1</span><br><span class="line">save b to ./file2</span><br><span class="line">save a to ./file3</span><br><span class="line">save file1 file2 file3 to file4</span><br><span class="line">save file4 to ./result</span><br><span class="line">3</span><br><span class="line">2</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<p>输出分别为<code>echo Shell Start</code>，<code>Shell Start</code>，<code>&quot;&quot;(同时向file1中存入echo $c的值)</code>，<code>&quot;&quot;(同时file1中存入$c的值)</code></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://wzr85.github.io">WZR</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://wzr85.github.io/posts/Lab0%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">https://wzr85.github.io/posts/Lab0%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/OS/">OS</a></div><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/hello-world/" title="Hello World"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">Hello World</div></div><div class="info-2"><div class="info-item-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">WZR</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Lab0%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A"><span class="toc-number">1.</span> <span class="toc-text">Lab0实验报告</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.1.</span> <span class="toc-text">上机实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E5%85%B3wordspliting"><span class="toc-number">1.1.1.</span> <span class="toc-text">有关wordspliting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MakeFile%E6%9C%89%E5%85%B3depends"><span class="toc-number">1.1.2.</span> <span class="toc-text">MakeFile有关depends</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bash%E6%9C%89%E5%85%B3%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">1.1.3.</span> <span class="toc-text">bash有关的操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-mkdir%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E9%87%8D%E5%A4%8D%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95%E8%80%8C%E6%8A%A5%E9%94%99"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">1.mkdir如何避免重复创建目录而报错</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-sort%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">2.sort的使用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8FRegex"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">3.正则表达式Regex</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E4%B8%8A%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.2.</span> <span class="toc-text">线上实验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Thinking-0-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">Thinking 0.1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Thinking-0-2"><span class="toc-number">1.2.2.</span> <span class="toc-text">Thinking 0.2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Thinking-0-3"><span class="toc-number">1.2.3.</span> <span class="toc-text">Thinking 0.3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Thinking-0-4"><span class="toc-number">1.2.4.</span> <span class="toc-text">Thinking 0.4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Thinking-0-5"><span class="toc-number">1.2.5.</span> <span class="toc-text">Thinking 0.5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Thinking-0-6"><span class="toc-number">1.2.6.</span> <span class="toc-text">Thinking 0.6</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/Lab0%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" title="Lab0实验报告">Lab0实验报告</a><time datetime="2026-03-19T14:24:21.000Z" title="Created 2026-03-19 22:24:21">2026-03-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/hello-world/" title="Hello World">Hello World</a><time datetime="2026-03-17T11:17:01.820Z" title="Created 2026-03-17 19:17:01">2026-03-17</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By WZR</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
